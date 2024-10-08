@@ -54,12 +54,12 @@ class Pokemon {
 
 document.addEventListener('keydown', function (event) {
   // (6)
-  Pokemon.keys[event.key] = true;
+  Pokemon.keys[event.key] = false;
 });
 
 document.addEventListener('keyup', function (event) {
   // (7)
-  Pokemon.keys[event.key] = false;
+  Pokemon.keys[event.key] = true;
 });
 
 function moveActivePokemon() {
