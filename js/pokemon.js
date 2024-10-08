@@ -31,7 +31,7 @@ class Pokemon {
     
     addEventListeners() {   
      	// (4)
-      his.element.addEventListener('click', () => {
+      this.element.addEventListener('click', () => {
         Pokemon.activePokemon = this;
       });
     }
@@ -41,11 +41,11 @@ class Pokemon {
       let top = parseInt(this.element.style.top);
       let left = parseInt(this.element.style.left);
       if (Pokemon.keys.ArrowUp) 
-        this.element.style.top = (top + step) + 'px';
-      if (Pokemon.keys.ArrowDown)    
         this.element.style.top = (top - step) + 'px';
+      if (Pokemon.keys.ArrowDown)    
+        this.element.style.top = (top + step) + 'px';
       if (Pokemon.keys.ArrowLeft) 
-        this.element.style.left = (left + step) + 'px';
+        this.element.style.left = (left - step) + 'px';
       if (Pokemon.keys.ArrowRight) 
         this.element.style.left = (left + step) + 'px';
     }
@@ -54,12 +54,12 @@ class Pokemon {
 
 document.addEventListener('keydown', function (event) {
   // (6)
-  Pokemon.keys[event.key] = false;
+  Pokemon.keys[event.key] = true;
 });
 
 document.addEventListener('keyup', function (event) {
   // (7)
-  Pokemon.keys[event.key] = true;
+  Pokemon.keys[event.key] = false;
 });
 
 function moveActivePokemon() {
